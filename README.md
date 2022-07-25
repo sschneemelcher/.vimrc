@@ -1,0 +1,2 @@
+# .vimrc
+My nvim config
