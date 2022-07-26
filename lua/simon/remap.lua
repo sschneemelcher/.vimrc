@@ -1,5 +1,15 @@
 -- open netwr
 vim.keymap.set("n", "<leader>pv", "<cmd>Ex<cr>")
+vim.keymap.set("n", "<leader><leader>x", "<cmd>so %<cr>")
+
+
+-- Emacs Style file navigation
+vim.keymap.set("n", "<C-x><C-f>", string.format(":e %s", os.getenv("PWD")))
+-- Emacs Style buffer navigation
+vim.keymap.set("n", "<C-x>b", ":b")
+
+
+
 
 vim.keymap.set("n", "<C-x>g", "<cmd>Neogit<cr>")
 

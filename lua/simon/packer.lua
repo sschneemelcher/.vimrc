@@ -6,7 +6,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use 'Everblush/everblush.nvim'
 
     -- fuzzy finder
     use 'nvim-lua/plenary.nvim'
@@ -14,6 +13,8 @@ return require('packer').startup(function()
 
     -- catppuccin theme
     use { "catppuccin/nvim", as = "catppuccin" }
+    -- everblush theme
+    use 'Everblush/everblush.nvim'
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
@@ -31,7 +32,7 @@ return require('packer').startup(function()
 
     use 'L3MON4D3/LuaSnip'
 
-    use 'sbdchd/neoformat'
+    --use 'sbdchd/neoformat'
     use 'rust-lang/rust.vim'
 
     use 'norcalli/nvim-colorizer.lua'
