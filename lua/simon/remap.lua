@@ -4,18 +4,18 @@ vim.keymap.set("n", "<leader><leader>x", "<cmd>so %<cr>")
 
 
 -- Emacs Style file navigation
-vim.keymap.set("n", "<C-x><C-f>", string.format(":e %s", os.getenv("PWD")))
+local dir = vim.api.nvim_buf_get_name(0)
+dir:gsub("/.*/", function(c)
+    if #c > 1 then
+        dir = c:sub(1,-2)
+    end
+end)
+vim.keymap.set("n", "<C-x><C-f>", string.format(":e %s", dir))
+
 -- Emacs Style buffer navigation
 vim.keymap.set("n", "<C-x>b", ":b")
 
-
-
-
 vim.keymap.set("n", "<C-x>g", "<cmd>Neogit<cr>")
-
-vim.keymap.set("n", "<leader>ps", function()
-    require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })
-end)
 
 vim.keymap.set("n", "<leader>ps", function()
     require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })
