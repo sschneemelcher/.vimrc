@@ -5,11 +5,11 @@ vim.keymap.set("n", "<leader><leader>x", "<cmd>so %<cr>")
 
 -- Emacs Style file navigation
 local dir = vim.api.nvim_buf_get_name(0)
-dir:gsub("/.*/", function(c)
-    if #c > 1 then
-        dir = c:sub(1,-2)
-    end
-end)
+-- gets the /foo.bar part of the path
+local fname = dir:match("/[%a%d]*%.[%a%d]*$")
+if fname then
+    dir = dir:gsub(fname, "")
+end
 vim.keymap.set("n", "<C-x><C-f>", string.format(":e %s", dir))
 
 -- Emacs Style buffer navigation
