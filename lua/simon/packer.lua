@@ -25,6 +25,8 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'glepnir/lspsaga.nvim'
+
+    use { "sakhnik/nvim-gdb" }
     -- use 'simrat39/symbols-outline.nvim'
 
     use 'TimUntersberger/neogit'
@@ -40,6 +42,11 @@ return require('packer').startup(function()
     use 'nvim-orgmode/orgmode'
 
     use 'nvim-lualine/lualine.nvim'
+    use { 'justinhj/battery.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
     use 'ziglang/zig.vim'
+
+    use 'preservim/vim-markdown'
+
+    use 'lervag/vimtex'
 end)

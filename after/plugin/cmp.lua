@@ -40,6 +40,14 @@ cmp.setup.filetype('gitcommit', {
     })
 })
 
+
+local disabled = {'tex', 'text', 'markdown'}
+for _, type in pairs(disabled) do
+    cmp.setup.filetype(type, {
+        enabled = false
+    })
+end
+
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
