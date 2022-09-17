@@ -11,7 +11,7 @@ local everblush_core = require('everblush.core')
 local colors = everblush_core.get_colors()
 local nvimbattery = {
   function()
-    return require("battery").get_status_line()
+    return require("battery").get_status_line():match("%d%d").." bat"
   end,
   color = { fg = colors.violet, bg = colors.bg },
 }
