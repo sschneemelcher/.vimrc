@@ -4,8 +4,6 @@ local fun = require("simon.functions")
 vim.keymap.set("n", "<leader>pv", "<cmd>Ex<cr>")
 vim.keymap.set("n", "<leader><leader>x", "<cmd>so %<cr>")
 
-vim.keymap.set("n", "<C-x><C-x>", fun.zig_build)
-
 -- Emacs Style file navigation
 local dir = vim.api.nvim_buf_get_name(0)
 -- gets the /foo.bar part of the path
