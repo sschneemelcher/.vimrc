@@ -38,15 +38,22 @@ cmp.setup.filetype('gitcommit', {
     }, {
         { name = 'buffer' },
     })
+}
+
+)
+cmp.setup.filetype('tex', {
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' }, -- You can specify the `cmp_git` source if you were installed it.
+    })
 })
 
 
-local disabled = {'tex', 'text', 'markdown'}
-for _, type in pairs(disabled) do
-    cmp.setup.filetype(type, {
-        enabled = false
-    })
-end
+-- local disabled = {'tex', 'text', 'markdown'}
+-- for _, type in pairs(disabled) do
+--     cmp.setup.filetype(type, {
+--         enabled = false
+--     })
+-- end
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {

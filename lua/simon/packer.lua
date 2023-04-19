@@ -14,7 +14,8 @@ return require('packer').startup(function()
     -- catppuccin theme
     use { "catppuccin/nvim", as = "catppuccin" }
     -- everblush theme
-    use 'Everblush/everblush.nvim'
+    -- use 'Everblush/everblush.nvim'
+    use { 'embark-theme/vim', as = 'embark' }
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
@@ -42,11 +43,13 @@ return require('packer').startup(function()
     use 'nvim-orgmode/orgmode'
 
     use 'nvim-lualine/lualine.nvim'
-    use { 'justinhj/battery.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    -- use { 'justinhj/battery.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
     use 'ziglang/zig.vim'
 
     use 'preservim/vim-markdown'
 
     use 'lervag/vimtex'
+
+    use 'github/copilot.vim'
 end)

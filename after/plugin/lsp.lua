@@ -34,7 +34,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'ansiblels', 'sumneko_lua', 'bashls', 'zls', 'ccls', 'julials', 'texlab' }
+local servers = { 'rust_analyzer', 'tsserver', 'ansiblels', 'lua_ls', 'bashls', 'zls', 'ccls', 'julials', 'hls', 'gopls' }
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
         on_attach = on_attach,
@@ -45,6 +45,7 @@ for _, lsp in pairs(servers) do
     }
 end
 
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.html.setup {
@@ -54,5 +55,58 @@ require 'lspconfig'.html.setup {
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
 }
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
+
+require 'lspconfig'.texlab.setup {
+    capabilities = capabilities,
+    settings = {
+        auxDirectory = ".",
+        bibtexFormatter = "texlab",
+        build = {
+            args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+            executable = "latexmk",
+            forwardSearchAfter = false,
+            onSave = false
+        },
+        chktex = {
+            onEdit = false,
+            onOpenAndSave = false
+        },
+        diagnosticsDelay = 300,
+        formatterLineLength = 80,
+        forwardSearch = {
+            args = {}
+        },
+        latexFormatter = "latexindent",
+        latexindent = {
+            modifyLineBreaks = false
+        }
+    }
+}
+
+
+require('lspconfig').pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        ruff = { enabled = false },
+        autopep8 = { enabled = false },
+        flake8 = { enabled = false },
+        mccabe = { enabled = false },
+        pycodestyle = { enabled = false },
+        pydocstyle = { enabled = false },
+        pyflakes = { enabled = false },
+        pylint = { enabled = false },
+        yapf = { enabled = false },
+      },
+    },
+  },
+})
+
+require('lspconfig').ruff_lsp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- vim.cmd('Copilot disable')

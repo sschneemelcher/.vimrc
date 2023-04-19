@@ -1,3 +1,5 @@
+-- local colorscheme = "catppuccin-mocha"
+-- pcall(vim.cmd, "colorscheme " .. colorscheme)
 vim.opt.guicursor = ""
 vim.opt.errorbells = false
 
@@ -33,3 +35,6 @@ vim.opt.updatetime = 50
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
+vim.g.vim_markdown_folding_disabled=1
+
+vim.cmd('colorscheme embark')
