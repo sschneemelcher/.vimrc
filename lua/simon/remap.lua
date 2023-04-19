@@ -1,5 +1,3 @@
-local fun = require("simon.functions")
-
 -- open netwr
 vim.keymap.set("n", "<leader>pv", "<cmd>Ex<cr>")
 vim.keymap.set("n", "<leader><leader>x", "<cmd>so %<cr>")
