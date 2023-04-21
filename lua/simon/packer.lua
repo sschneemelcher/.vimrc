@@ -17,39 +17,54 @@ return require('packer').startup(function()
     -- use 'Everblush/everblush.nvim'
     use { 'embark-theme/vim', as = 'embark' }
 
-    use 'nvim-treesitter/nvim-treesitter'
+
+    use("nvim-treesitter/nvim-treesitter")
     use 'nvim-treesitter/nvim-treesitter-context'
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'glepnir/lspsaga.nvim'
+    use("nvim-treesitter/playground")
+    use("theprimeagen/harpoon")
 
-    use { "sakhnik/nvim-gdb" }
-    -- use 'simrat39/symbols-outline.nvim'
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {                                      -- Optional
+            'williamboman/mason.nvim',
+            run = function()
+                pcall(vim.cmd, 'MasonUpdate')
+            end,
+            },
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-    use 'TimUntersberger/neogit'
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
+    }
+
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
+
     use 'mbbill/undotree'
-
-    use 'L3MON4D3/LuaSnip'
-
-    --use 'sbdchd/neoformat'
+    use("tpope/vim-fugitive")
     use 'rust-lang/rust.vim'
-
-    use 'norcalli/nvim-colorizer.lua'
-
-    use 'nvim-orgmode/orgmode'
-
-    use 'nvim-lualine/lualine.nvim'
-    -- use { 'justinhj/battery.nvim', requires = {'nvim-lua/plenary.nvim'}}
-
     use 'ziglang/zig.vim'
 
-    use 'preservim/vim-markdown'
+    use 'nvim-lualine/lualine.nvim'
 
-    use 'lervag/vimtex'
+    -- use 'preservim/vim-markdown'
+    -- use 'lervag/vimtex'
 
-    use 'github/copilot.vim'
+    -- use 'github/copilot.vim'
 end)
