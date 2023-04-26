@@ -38,3 +38,14 @@ vim.g.netrw_banner = 0
 vim.g.vim_markdown_folding_disabled=1
 
 vim.cmd('colorscheme embark')
+
+-- set language for all .tex files to latex
+vim.g.tex_flavor = "latex"
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+	desc = 'Enable spell checking in latex files',
+	pattern = '*.tex',
+    command = 'setlocal spell spelllang=en_us'
+})
+
+

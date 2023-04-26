@@ -63,6 +63,8 @@ return require('packer').startup(function()
 
     use 'nvim-lualine/lualine.nvim'
 
+    use 'christoomey/vim-tmux-navigator'
+
     -- use 'preservim/vim-markdown'
     -- use 'lervag/vimtex'
 
