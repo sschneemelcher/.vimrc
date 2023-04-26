@@ -43,3 +43,20 @@ end)
 vim.keymap.set("n", "<leader>fg", function()
     require('telescope.builtin').live_grep()
 end)
+
+vim.keymap.set("v", "<leader>ds", function()
+    require('dap-python').debug_selection()
+end)
+
+
+vim.keymap.set("n", "<leader>dd", function()
+    require('dap').continue()
+end)
+
+vim.keymap.set("n", "<leader>bp", function()
+    require('dap').toggle_breakpoint()
+end)
+
+vim.keymap.set("n", "<leader>s", function()
+    require('dap').step_into()
+end)

@@ -4,6 +4,11 @@ require 'lspconfig'.html.setup {
     capabilities = capabilities,
 }
 
+-- nix language server
+require 'lspconfig'.nil_ls.setup {
+    capabilities = capabilities,
+}
+
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
 }

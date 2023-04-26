@@ -57,13 +57,17 @@ return require('packer').startup(function()
     }
 
     use 'mbbill/undotree'
-    use("tpope/vim-fugitive")
+    use 'tpope/vim-fugitive'
+    use 'airblade/vim-gitgutter'
     use 'rust-lang/rust.vim'
     use 'ziglang/zig.vim'
 
     use 'nvim-lualine/lualine.nvim'
 
     use 'christoomey/vim-tmux-navigator'
+
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
 
     -- use 'preservim/vim-markdown'
     -- use 'lervag/vimtex'
